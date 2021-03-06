@@ -1,1 +1,98 @@
-<p>settings works!</p>
+<div style="display: flex;">
+<mat-card style="width: 49%;">
+    <mat-card-title style="font-family: cursive;">Source Server Details</mat-card-title>
+    <mat-card-content>
+<form (ngSubmit)="onSubmit()" class="example-form">
+    <div style="display: flex;">
+    <mat-form-field appearance="outline" style="width: 75%; outline-color: blue;">
+        <mat-label>Enter HostName</mat-label>
+        <input matInput placeholder="for e.g. 192.168.140.8" required formControlName="hostname">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 25%; outline-color: blue;">
+            <mat-label>Enter Port</mat-label>
+            <input matInput placeholder="for e.g. 1521" required formControlName="port">
+        </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline" class="form-field-width">
+        <mat-label>Enter Database Name</mat-label>
+        <input matInput placeholder="for e.g. examin" required formControlName="dbName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field-width">
+        <mat-label>Enter UserName</mat-label>
+        <input matInput placeholder="for e.g. examin_ro" required formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field-width">
+        <mat-label>Enter Password</mat-label>
+        <input matInput placeholder="" required formControlName="password">
+    </mat-form-field> 
+    
+    <mat-form-field appearance="outline" [color]="Accent">
+        <mat-select placeholder="DB Type" required formControlName="dbType">
+            <mat-option value="Oracle">Oracle</mat-option>
+            <mat-option value="PostGre">PostGre</mat-option>
+        </mat-select>                       
+    </mat-form-field> 
+   
+ <div>
+    <button appearance="outline" (click)="TestConnection()" color="primary"  mat-raised-button>Test Connection</button>
+
+    <button appearance="outline" (click)="AddServer()" color="primary" [disabled]="testConnectionStatus" mat-raised-button>Add New Server</button>
+
+    <button appearance="outline"  (click)="AddNewServerForm.reset()" mat-raised-button>Clear</button>
+</div>
+  </form>
+</mat-card-content>
+</mat-card>
+<mat-divider [vertical]="true"></mat-divider>
+<mat-card style="width: 49%;">
+    <mat-card-title style="font-family: cursive;">Target Server Details</mat-card-title>
+    <mat-card-content>
+<form (ngSubmit)="onSubmit()" class="example-form">
+    
+    <div style="display: flex;">
+        <mat-form-field appearance="outline" style="width: 75%; outline-color: blue;">
+            <mat-label>Enter HostName</mat-label>
+            <input matInput placeholder="for e.g. 192.168.140.8" required formControlName="hostname">
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" style="width: 25%; outline-color: blue;">
+                <mat-label>Enter Port</mat-label>
+                <input matInput placeholder="for e.g. 1521" required formControlName="port">
+            </mat-form-field>
+        </div>
+  
+    <mat-form-field appearance="outline" class="form-field-width">
+        <mat-label>Enter Database Name</mat-label>
+        <input matInput placeholder="for e.g. examin" required formControlName="dbName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field-width">
+        <mat-label>Enter UserName</mat-label>
+        <input matInput placeholder="for e.g. examin_ro" required formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field-width">
+        <mat-label>Enter Password</mat-label>
+        <input matInput placeholder="" required formControlName="password">
+    </mat-form-field> 
+
+    <mat-form-field appearance="outline" [color]="Accent">
+        <mat-select placeholder="DB Type" required formControlName="dbType">
+            <mat-option value="Oracle">Oracle</mat-option>
+            <mat-option value="PostGre">PostGre</mat-option>
+        </mat-select>                       
+    </mat-form-field> 
+ <div>
+    <button appearance="outline" (click)="TestConnection()" color="primary"  mat-raised-button>Test Connection</button>
+
+    <button appearance="outline" (click)="AddServer()" color="primary" [disabled]="testConnectionStatus" mat-raised-button>Add New Server</button>
+
+    <button appearance="outline"  (click)="AddNewServerForm.reset()" mat-raised-button>Clear</button>
+</div>
+  </form>
+</mat-card-content>
+</mat-card>
+</div>
